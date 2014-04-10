@@ -1,8 +1,12 @@
 ---
 layout: default
 title: Douglas Gemignani
+published: true
 ---
-    <ul class="posts">
+
+<h1>Blog Entries</h1>
+
+<ul class="posts">
       {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</sp	an> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
