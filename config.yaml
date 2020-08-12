@@ -1,7 +1,7 @@
 baseURL: 'https://doug.gemignani.org/'
 languageCode: en-us
 title: Doug Blog
-theme: cactus
+theme: even
 menu:
   main:
     - name: Home
