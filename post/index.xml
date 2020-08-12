@@ -6,19 +6,10 @@
     <description>Recent content in Posts on Doug Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Aug 2020 17:53:44 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Apr 2014 08:47:11 +0100</lastBuildDate>
     
 	<atom:link href="https://doug.gemignani.org/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Homeassistant Setup</title>
-      <link>https://doug.gemignani.org/post/homeassistant/</link>
-      <pubDate>Tue, 11 Aug 2020 17:53:44 +0000</pubDate>
-      
-      <guid>https://doug.gemignani.org/post/homeassistant/</guid>
-      <description>Let&amp;rsquo;s explore the true awesomeness of homeassistant</description>
-    </item>
     
     <item>
       <title>Brazilian Interactive DTV Applications</title>
