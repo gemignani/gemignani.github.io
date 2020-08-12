@@ -18,15 +18,17 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+      with:
+        submodules: true  # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
     # Runs a single command using the runners shell
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: "0.64.0"
+        hugo-version: "0.68.3"
     
     - name: Build
-      run: hugo
+      run: hugo -D -v --minify
         
     # Runs a set of commands using the runners shell
     - name: Deploy
