@@ -5,4 +5,4 @@ draft: true
 ---
 
 Let's explore the true awesomeness of homeassistant.
-I will eventually write down here my findings.
+I will eventually write down here my findings again.
