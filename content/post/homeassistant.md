@@ -1,5 +1,5 @@
 ---
-title: "Homeassistant"
+title: "Homeassistant Setup"
 date: 2020-08-11T17:53:44Z
 draft: true
 ---

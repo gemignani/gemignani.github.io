@@ -30,7 +30,7 @@ We will develop a simple application, so we just need to create a NCL document a
 
 So, let's go directly to the code, a simple NCL document would be:
 
-{% highlight ruby %}
+```
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ncl id="exemplo01" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
 	<head>
@@ -46,7 +46,7 @@ So, let's go directly to the code, a simple NCL document would be:
 		<media descriptor="dVideo1" id="video1" src="media/sample.mp4"/>
 	</body>
 </ncl>
-{% endhighlight %}
+```
 
 It looks like an HTML/XML and the code is written to reproduce the *<media>* tag, which would play the *dVideo1* described by *<descriptorBase>* tag and placed at a region from *<regionBase>*. It is important to note that every code 
 
@@ -58,13 +58,13 @@ The LUA language is very popular, it provides a flexible meta-features that can 
 There is also a special API done for DTV in LUA, which can handle useful information like current channel, volume.
 
 Ok, so let's start by defining a LUA media inside our NCL document like this:
-{% highlight lua %}
+```
 <media id="lua1" src="main.lua" descriptor="dLua" />
-{% endhighlight %}
+```
 
 Then we can just create the main.lua file and create a funtion to handle this event.
 
-{% highlight lua %}
+```
 function handler (evt)
 	if (evt.class == 'key') then
 		print (">> evt.key = <"..evt.key..">")
@@ -74,18 +74,18 @@ function handler (evt)
 		return true
 	end
 end
-{% endhighlight %}
+```
 
 Lua is so powerful that it can be used for drawing too like this:
 
-{% highlight lua %}
+```
 function drawLua()
 	canvas:attrColor('black')
 	canvas:attrFont('vera',25,nil)
 	canvas:drawText(10, 10, "Lua sample") 
 	--let's flush!
 	canvas:flush()
-{% endhighlight %}
+```
 
 Further example would be drawing rectangles, circles or loading images. 
 
@@ -96,5 +96,5 @@ Working example
 
 It is possible to find awsome material in previous links, but I would like to share some gems!
 
-* [Sokoban]({{ site.url }}/assets/sokoban.zip) application, great way to learn
-* [Sochi]({{ site.url }}/assets/sochi.tar.gz) application from [Record](http://rederecord.r7.com).
+* [Sokoban](/sokoban.zip) application, great way to learn
+* [Sochi](/sochi.tar.gz) application from [Record](http://rederecord.r7.com).
