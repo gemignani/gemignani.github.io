@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: https://doug.gemignani.org/sitemap.xml
