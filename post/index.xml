@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Doug Blog</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://doug.gemignani.org/post/</link>
     <description>Recent content in Posts on Doug Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 11 Jul 2024 17:53:44 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://doug.gemignani.org/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTML Samples</title>
-      <link>http://localhost:1313/post/html_samples/</link>
+      <link>https://doug.gemignani.org/post/html_samples/</link>
       <pubDate>Thu, 11 Jul 2024 17:53:44 +0000</pubDate>
-      <guid>http://localhost:1313/post/html_samples/</guid>
+      <guid>https://doug.gemignani.org/post/html_samples/</guid>
       <description>I&amp;rsquo;ve pushed some samples of HTML Tests I&amp;rsquo;ve done in the past years to github.</description>
     </item>
     <item>
       <title>Brazilian Interactive DTV Applications</title>
-      <link>http://localhost:1313/post/brazilian_applications/</link>
+      <link>https://doug.gemignani.org/post/brazilian_applications/</link>
       <pubDate>Fri, 11 Apr 2014 08:47:11 +0100</pubDate>
-      <guid>http://localhost:1313/post/brazilian_applications/</guid>
+      <guid>https://doug.gemignani.org/post/brazilian_applications/</guid>
       <description>Brazilian DTV standard for interactive applications &amp;ldquo;Ginga&amp;rdquo; is now being followed by other South America countries. The standard is usually implemented by big electronics companies and setup-box manufacturers as a middleware service inside their platforms.&#xA;Applications can be built using a special version of Java TV or NCL (Nested Context Language), the specification covers a wide range of concepts, so the developer should read the ABNT NBR standard before further adventures.</description>
     </item>
   </channel>

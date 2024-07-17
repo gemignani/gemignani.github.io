@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/douglas/projects/gemignani.github.io",
+	"sourceRoot": "/home/douglas/projects/blog",
 	"sources": [
 		"ananke/css/main.css"
 	],

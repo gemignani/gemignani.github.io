@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://doug.gemignani.org/</loc>
     <lastmod>2024-07-11T17:53:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/html_samples/</loc>
+    <loc>https://doug.gemignani.org/post/html_samples/</loc>
     <lastmod>2024-07-11T17:53:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://doug.gemignani.org/post/</loc>
     <lastmod>2024-07-11T17:53:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/brazilian_applications/</loc>
+    <loc>https://doug.gemignani.org/post/brazilian_applications/</loc>
     <lastmod>2014-04-11T08:47:11+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://doug.gemignani.org/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://doug.gemignani.org/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
