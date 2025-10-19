@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Contact"
+	description="Get in touch with me"
+	pubDate={new Date()}
+>
+	<h2>Get In Touch</h2>
+	
+	<p>
+		I'd love to hear from you! Whether you have questions about my projects, 
+		want to collaborate, or just want to say hello, feel free to reach out.
+	</p>
+
+	<div class="contact-methods">
+		<div class="contact-card">
+			<h3>🐙 GitHub</h3>
+			<p>Check out my code and open source contributions</p>
+			<a href="https://github.com/gemingnani" target="_blank" class="contact-link">github.com/gemingnani</a>
+		</div>
+
+		<div class="contact-card">
+			<h3>💼 LinkedIn</h3>
+			<p>Connect with me professionally</p>
+			<a href="https://www.linkedin.com/in/douglaspassoslima/" target="_blank" class="contact-link">linkedin.com/in/douglaspassoslima</a>
+		</div>
+
+	</div>
+</Layout>
+
+<style>
+	.contact-methods {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+		margin: 2rem 0;
+	}
+
+	.contact-card {
+		border: 1px solid var(--border);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: var(--bg);
+		text-align: center;
+		transition: box-shadow 0.2s ease;
+	}
+
+	.contact-card:hover {
+		box-shadow: 0 4px 12px rgba(var(--black), 10%);
+	}
+
+	.contact-card h3 {
+		margin: 0 0 1rem 0;
+		color: var(--accent);
+		font-size: 1.2rem;
+	}
+
+	.contact-card p {
+		margin: 0 0 1rem 0;
+		color: var(--text);
+		font-size: 0.9rem;
+	}
+
+	.contact-link {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 500;
+		transition: background-color 0.2s ease;
+		word-break: break-all;
+	}
+
+	.contact-link:hover {
+		background: var(--accent-dark, #0056b3);
+	}
+
+	.contact-note {
+		margin-top: 3rem;
+		padding: 1rem;
+		background: rgba(var(--accent-rgb, 0, 102, 179), 0.1);
+		border-left: 4px solid var(--accent);
+		border-radius: 4px;
+	}
+
+	.contact-note p {
+		margin: 0;
+		color: var(--text);
+		font-style: italic;
+	}
+</style>

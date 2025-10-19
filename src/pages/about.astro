@@ -1,0 +1,207 @@
+---
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About Me"
+	description="Principal Software Engineer with expertise in embedded systems, digital TV middleware, and full-stack development"
+	pubDate={new Date('August 08 2021')}
+	heroImage={AboutHeroImage}
+>
+	<h2>Professional Experience</h2>
+
+	<div class="experience-section">
+		<h3>Principal Software Engineer</h3>
+		<div class="company-info">
+			<strong>Sky</strong> · Full-time
+			<span class="duration">Sep 2014 - Present · 11 yrs 2 mos</span>
+			<span class="location">London Area, United Kingdom · Hybrid</span>
+		</div>
+		<p>
+			Integrated external applications into Sky Platforms such as BBC iPlayer, Prime Video, HaYu, and others, 
+			liaising with internal and external teams across multiple departments including QA, Program and Project 
+			Managers, Product and Engineering. Created and delivered embedded JavaScript libraries namely RDK Firebolt 
+			and authored Python tools to orchestrate application delivery. Investigated incidents and triaged problems 
+			organizing and providing options to solutions in different domains used by Sky products.
+		</p>
+		<p>
+			Delivered embedded telemetry and debugging tools and triaged issues carrying out detailed investigations 
+			and analysis to support development teams, creating solutions in multiple domains such as DRM, UI, 
+			Middleware, Players, and Web Apps for several Sky Glass, Sky Stream, and Sky Q across territories.
+		</p>
+		<p>
+			Orchestrated the firmware delivery for Sky Set-up boxes, developing and maintaining the full stack build 
+			system, integrating drivers, middleware, and the UI using internal and build pipelines. Built tools and 
+			systems to automate and test the deliveries, including advanced device farm operation and log parsing 
+			capabilities with automatic fault detection.
+		</p>
+	</div>
+
+	<div class="experience-section">
+		<h3>Software Engineer</h3>
+		<div class="company-info">
+			<strong>LG Electronics</strong> · Full-time
+			<span class="duration">Sep 2010 - Sep 2014 · 4 yrs 1 mo</span>
+			<span class="location">Greater São Paulo Area · On-site</span>
+		</div>
+		<p>
+			Developed and maintained digital television middleware using Embedded C / C++, including Linux and 
+			associated tools. ATSC and DVB Test and Live Stream validation for software integration of modules 
+			and components in the NetCast and WebOS software stacks.
+		</p>
+		<p>
+			Collaborated with QA and development teams to address field and factory issues through firmware updates 
+			and process improvements.
+		</p>
+		<p>
+			Implemented Brazil's DTV specification on various platforms, spending over a year with teams in South 
+			Korea for software integration and device firmware development. Responsibilities included platform 
+			bring-up work such as eMMC partitioning, Linux kernel configuration, and graphics/UI setup.
+		</p>
+		<p>
+			Provided support for the integration of Smart TV applications, including guidance on SDK usage, code 
+			snippets, and sample applications for local and global partners.
+		</p>
+		<div class="key-projects">
+			<h4>Key Projects:</h4>
+			<ul>
+				<li>Developer for ISDB-T SI</li>
+				<li>Developer for Ginga middleware (Brazilian DTV Interactive Applications)</li>
+				<li>Porting middleware for LG DTVs spanning from 2011 to 2015</li>
+				<li>Support for local applications and content partners for 2011 Smart TV</li>
+				<li>Satellite prototype development for Brazil-based Europe 2011 Smart TV</li>
+				<li>Implementation of Audio Deficient (AD) Brazil's specification on 2012 models</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="experience-section">
+		<h3>Software Engineer</h3>
+		<div class="company-info">
+			<strong>Gertec</strong> · Full-time
+			<span class="duration">Sep 2007 - Sep 2010 · 3 yrs 1 mo</span>
+			<span class="location">Greater São Paulo Area · On-site</span>
+		</div>
+		<p>
+			Delivered firmware for commercial automation products such as Price Scanners, Security Tokens and Media 
+			Displays using C / C++ with Embedded Linux, RTOS, and Bare Metal including driver and display 
+			configuration, barcode library integration and porting code for newer chips based on ARM and MIPS. 
+			Contributed to the development of testing tools and supporting libraries.
+		</p>
+		<p>
+			Developed banking security devices such as Card Reader, POS Systems and Secure ATM Keyboards for banking 
+			and payment systems, specializing in the provisioning of keys in high-security systems. Facilitated the 
+			implementation of cryptography functions and designed APIs for device control and communication for 
+			Windows and Linux.
+		</p>
+		<div class="key-projects">
+			<h4>Key Projects:</h4>
+			<ul>
+				<li>ATM cryptographic keyboard</li>
+				<li>Pin Pad and POS devices</li>
+				<li>Multimedia solution for Display ADs</li>
+				<li>Price checking systems</li>
+				<li>Token devices</li>
+			</ul>
+		</div>
+	</div>
+
+	<h2>Education</h2>
+	<div class="education-section">
+		<h3>Bachelor's degree, Electrical and Computer Engineering</h3>
+		<div class="company-info">
+			<strong>FEI</strong>
+			<span class="duration">Jan 2004 - Dec 2008</span>
+		</div>
+	</div>
+
+	<h2>Volunteering</h2>
+	<div class="volunteering-section">
+		<h3>Mentor</h3>
+		<div class="company-info">
+			<strong>Soul Bilíngue</strong>
+			<span class="duration">Dec 2022 - Present · 2 yrs 11 mos</span>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.experience-section,
+	.education-section,
+	.volunteering-section {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		border-left: 4px solid var(--accent);
+		background: rgba(var(--accent-rgb, 0, 102, 179), 0.05);
+		border-radius: 0 8px 8px 0;
+	}
+
+	.experience-section h3,
+	.education-section h3,
+	.volunteering-section h3 {
+		margin: 0 0 0.5rem 0;
+		color: var(--accent);
+		font-size: 1.3rem;
+	}
+
+	.company-info {
+		margin-bottom: 1rem;
+		font-size: 0.95rem;
+		color: var(--text-muted, #666);
+	}
+
+	.company-info strong {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.duration,
+	.location {
+		display: block;
+		margin-top: 0.25rem;
+		font-size: 0.9rem;
+	}
+
+	.key-projects {
+		margin-top: 1.5rem;
+		padding: 1rem;
+		background: rgba(var(--accent-rgb, 0, 102, 179), 0.1);
+		border-radius: 6px;
+	}
+
+	.key-projects h4 {
+		margin: 0 0 0.75rem 0;
+		color: var(--accent);
+		font-size: 1.1rem;
+	}
+
+	.key-projects ul {
+		margin: 0;
+		padding-left: 1.5rem;
+	}
+
+	.key-projects li {
+		margin-bottom: 0.5rem;
+		color: var(--text);
+	}
+
+	.experience-section p {
+		margin-bottom: 1rem;
+		line-height: 1.6;
+		color: var(--text);
+	}
+
+	.experience-section p:last-child {
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 768px) {
+		.experience-section,
+		.education-section,
+		.volunteering-section {
+			padding: 1rem;
+			margin: 1.5rem 0;
+		}
+	}
+</style>

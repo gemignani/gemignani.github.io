@@ -1,0 +1,139 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/BlogPost.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout
+	title="Projects"
+	description="A collection of my projects and work"
+	pubDate={new Date()}
+>
+	<h2>My Projects</h2>
+	
+	<p>
+		Here you'll find a collection of projects I've worked on, including web applications, 
+		open source contributions, and personal experiments.
+	</p>
+
+	<div class="projects-grid">
+		{
+			posts.map((post) => (
+				<div class="project-card">
+					{post.data.heroImage && (
+						<div class="project-image">
+							<Image width={400} height={200} src={post.data.heroImage} alt={post.data.title} />
+						</div>
+					)}
+					<h3>{post.data.title}</h3>
+					<p>{post.data.description}</p>
+					<div class="project-meta">
+						<span class="project-date">
+							<FormattedDate date={post.data.pubDate} />
+						</span>
+					</div>
+					<div class="project-links">
+						<a href={`/projects/${post.id}/`} class="project-link">Read More</a>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</Layout>
+
+<style>
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.project-card {
+		border: 1px solid var(--border);
+		border-radius: 8px;
+		padding: 0;
+		background: var(--bg);
+		transition: box-shadow 0.2s ease;
+		overflow: hidden;
+	}
+
+	.project-card:hover {
+		box-shadow: 0 4px 12px rgba(var(--black), 10%);
+	}
+
+	.project-image {
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.project-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.2s ease;
+	}
+
+	.project-card:hover .project-image img {
+		transform: scale(1.05);
+	}
+
+	.project-card h3 {
+		margin: 0;
+		padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+		color: var(--accent);
+		font-size: 1.2rem;
+	}
+
+	.project-card p {
+		margin: 0;
+		padding: 0 1.5rem;
+		color: var(--text);
+		line-height: 1.5;
+	}
+
+	.project-meta {
+		padding: 1rem 1.5rem 0.5rem 1.5rem;
+	}
+
+	.project-date {
+		font-size: 0.9rem;
+		color: var(--text-muted, #666);
+	}
+
+	.project-links {
+		padding: 1rem 1.5rem 1.5rem 1.5rem;
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.project-link {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 500;
+		transition: background-color 0.2s ease;
+		font-size: 0.9rem;
+	}
+
+	.project-link:hover {
+		background: var(--accent-dark, #0056b3);
+	}
+
+	@media (max-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>
