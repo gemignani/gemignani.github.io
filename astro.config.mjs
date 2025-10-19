@@ -7,5 +7,6 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://gemignani.github.io/',
+	output: 'static',
 	integrations: [mdx(), sitemap()],
 });
