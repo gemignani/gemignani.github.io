@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'projects'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
@@ -14,73 +14,103 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
-	<body>
+	<body class="min-h-screen bg-white dark:bg-gray-900">
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+		
+		<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+			<article class="prose prose-lg max-w-none">
+				<!-- Hero Image -->
+				{heroImage && (
+					<div class="mb-8">
+						<Image 
+							width={1020} 
+							height={510} 
+							src={heroImage} 
+							alt={title}
+							class="w-full h-auto rounded-lg shadow-lg"
+							loading="eager"
+						/>
 					</div>
+				)}
+				
+				<!-- Article Header -->
+				<header class="mb-8 text-center">
+					<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-balance">
+						{title}
+					</h1>
+					
+					<div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+						<div class="flex items-center gap-2">
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+							</svg>
+							<FormattedDate date={pubDate} />
+						</div>
+						
+						{updatedDate && (
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+								</svg>
+								<span>Updated <FormattedDate date={updatedDate} /></span>
+							</div>
+						)}
+						
+						<div class="flex items-center gap-2">
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+							</svg>
+							<span id="reading-time"></span>
+						</div>
+					</div>
+				</header>
+				
+				<!-- Article Content -->
+				<div class="prose prose-lg max-w-none">
 					<slot />
 				</div>
 			</article>
 		</main>
+		
 		<Footer />
+		
+		<script>
+			// Calculate reading time
+			function calculateReadingTime() {
+				const article = document.querySelector('article .prose');
+				if (!article) return;
+				
+				const text = article.innerText || article.textContent || '';
+				const wordsPerMinute = 200;
+				const words = text.trim().split(/\s+/).length;
+				const minutes = Math.ceil(words / wordsPerMinute);
+				
+				const readingTimeElement = document.getElementById('reading-time');
+				if (readingTimeElement) {
+					readingTimeElement.textContent = `${minutes} min read`;
+				}
+			}
+			
+			// Calculate reading time when page loads
+			document.addEventListener('DOMContentLoaded', calculateReadingTime);
+			
+			// Smooth scroll for anchor links
+			document.addEventListener('click', function(e) {
+				const target = e.target.closest('a[href^="#"]');
+				if (target) {
+					e.preventDefault();
+					const targetId = target.getAttribute('href').substring(1);
+					const targetElement = document.getElementById(targetId);
+					if (targetElement) {
+						targetElement.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				}
+			});
+		</script>
 	</body>
 </html>

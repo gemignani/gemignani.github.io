@@ -20,6 +20,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
@@ -31,8 +32,9 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -55,3 +57,59 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+<!-- Critical CSS for preventing white flash -->
+<style>
+  /* Prevent white flash by setting initial theme */
+  html {
+    color-scheme: light dark;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+  
+  /* Ensure smooth transitions */
+  * {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* Prevent flash during page load */
+  body {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+  
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<!-- Dark mode script - must be inline and early -->
+<script is:inline>
+  (function() {
+    // Apply theme immediately to prevent flash
+    const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Mark body as loaded after theme is applied
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('loaded');
+    });
+    
+    // Fallback for immediate execution
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+      });
+    } else {
+      document.body.classList.add('loaded');
+    }
+  })();
+</script>

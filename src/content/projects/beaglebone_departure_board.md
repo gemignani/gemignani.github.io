@@ -1,7 +1,7 @@
 ---
 title: "Building a Custom Train Departure Board with BeagleBone and RGB LED Matrix"
 description: "A deep dive into creating a real-time train departure display using BeagleBone Black, RGB LED matrices, and custom C++/Node.js software stack."
-pubDate: 2015-03-20T019:47:11+01:00
+pubDate: 2015-03-20T19:47:11+01:00
 draft: false
 ---
 
